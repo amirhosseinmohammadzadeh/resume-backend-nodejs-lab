@@ -1,0 +1,51 @@
+$technecianName = 'technecian';
+$userId,$userGroupName = SELECT user.userId,userGroup.userGroupName FROM user WHERE userUsername = $userUsername INNER JOIN userGroup USING userGroupId
+if($userGroupName != $technecianName)exit;
+
+UPDATE user SET		'userUsername' = $userUsername,
+			'userPassword' = $userPassword,
+			'userStatus' = $userStatus,
+			'userGroupId' = $userGroupId
+		WHERE userUsername = $username
+
+$userId = SELECT userId FROM user WHERE userUsername = $userUsername
+INSERT INTO userInfo
+			'userId' = $id,
+			'userInfoFirstName' = $firsname,
+			'userInfoLastName' = $lastname,
+			'userInfoBirtday' = $birtday,
+			'userInfoEmail' = $email,
+			'userInfoNationalCode' = $nationalCode,
+			'userAddrCity' = $city,
+			'userAddrArea' = $area,
+			'userAddrAlley' = $alley,
+			'userAddrPlaque' = $plaque,
+			'userAddrMoreInfo' = $addrMoreInfo,
+			'userPostCode' = $postCode,
+			'userRegistrationDate' = $registrationDate
+		WHERE userId = $userId
+UPDATE userPhone SET
+			'userId' = $userid,
+			'userPhoneNumber' = $phoneNumber,
+			'userPhoneCityCode' = $cityCode
+		WHERE userPhoneId = $phoneId
+UPDATE userEducationBackground SET
+			'userId' = $userId,
+			'userEducationBackgroundAverage' = $average,
+			'userEducationBackgroundEndDate' = $endDate,
+			'userEducationBackgroundUniversity' = $university
+		WHERE userEducationBackgroundId = id
+UPDATE userChild SET
+			'userId' = $userId,
+			'userChildFirstName' = $firstname,
+			'userChildLastName' = $lastname,
+			'userChildGender' = $gender,
+			'UserChildBirtday' = $birtday,
+		WHERE userChildId = $id
+INSERT INTO userResume
+			'userId' = $userId,
+			'userResumePlaceName' = $placename,
+			'userResumeStartTime' = $startTime,
+			'userResumeEndTime' = $endTime,
+			'userResumeDescription' = $description
+		WHERE userResumeId = $id

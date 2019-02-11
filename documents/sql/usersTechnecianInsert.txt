@@ -1,0 +1,87 @@
+$technecianName = 'technecian';
+$userGroupId = SELECT userGroupId FROM userGroup WHERE userGroupName = $technecianName
+
+INSERT INTO user 	
+			('userUsername',
+			'userPassword',
+			'userStatus',
+			'userGroupId')
+		VALUES
+			($userUsername,
+			$userPassword,
+			$userStatus,
+			$userGroupId)
+
+$userId,$userGroupName = SELECT user.userId,userGroup.userGroupName FROM user WHERE userUsername = $userUsername INNER JOIN userGroup USING userGroupId
+if($userGroupName != $technecianName)exit;
+
+INSERT INTO userInfo
+			('userId',
+			'userInfoFirstName',
+			'userInfoLastName',
+			'userInfoBirtday',
+			'userInfoEmail',
+			'userInfoNationalCode',
+			'userAddrCity',
+			'userAddrArea',
+			'userAddrAlley',
+			'userAddrPlaque',
+			'userAddrMoreInfo',
+			'userPostCode',
+			'userRegistrationDate')
+		VALUES 		
+			($userId,
+			$userInfoFirst,
+			$userInfoLastName,
+			$userInfoBirtday,
+			$userInfoEmail,
+			$userInfoNationalCode,
+			$userAddrCity,
+			$userAddrArea,
+			$userAddrAlley,
+			$userAddrPlaque,
+			$userAddrMoreInfo,
+			$userPostCode,
+			$userRegistrationDate)
+INSERT INTO userPhone
+			('userId',
+			'userPhoneNumber',
+			'userPhoneCityCode')
+		VALUES
+			($userId,
+			$userPhoneNumber,
+			$userPhoneCityCode)
+INSERT INTO userEducationBackground
+			('userId',
+			'userEducationBackgroundAverage',
+			'userEducationBackgroundEndDate',
+			'userEducationBackgroundUniversity')
+		VALUES
+			($userId,
+			$userEducationBackgroundAverage,
+			$userEducationBackgroundEndDate,
+			$userEducationBackgroundUniversity)
+INSERT INTO userChild
+			('userId',
+			'userChildFirstName',
+			'userChildLastName',
+			'userChildGender',
+			'UserChildBirtday')
+		VALUES
+			($userId,
+			$userChildFirstName,
+			$userChildLastName,
+			$userChildGender,
+			$UserChildBirtday)
+INSERT INTO userResume
+			('userId',
+			'userResumePlaceName',
+			'userResumeStartTime',
+			'userResumeEndTime',
+			'userResumeDiscription')
+		VALUES
+			($userId,
+			$userResumePlaceName,
+			$userResumeStartTime,
+			$userResumeEndTime,
+			$userResumeDiscription)

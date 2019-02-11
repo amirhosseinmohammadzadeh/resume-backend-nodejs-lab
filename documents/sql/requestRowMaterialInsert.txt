@@ -1,0 +1,12 @@
+$userId = SELECT userId FROM user WHERE userUsername = $userUsername
+
+INSET INTO orderRowMaterialRequest
+			'userId',
+			'orderRowMaterialRequestTitle',
+			'materialId',
+			'orderRowMaterialRequestDescription')
+		VALUES
+			($userId,
+			$orderRowMaterialRequestTitle,
+			$materialId,
+			$orderRowMaterialRequestDescription)

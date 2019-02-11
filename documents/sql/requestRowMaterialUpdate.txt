@@ -1,0 +1,8 @@
+$userId = SELECT userId FROM user WHERE userUsername = $userUsername
+
+UPDATE technecianDeleteRequest SET
+			'userId' = $userId,
+			'orderRowMaterialRequestTitle' = $title,
+			'materialId' = $materialId,
+			'orderRowMaterialRequestDescription' = $decription
+	WHERE technecianDeleteRequestId = $id

@@ -1,0 +1,10 @@
+SELECT * FROM technecianReport
+	WHERE 	technecianReportDate BETWEEN $dateStart AND $dateEnd AND
+		senderUserId = $senderId AND
+		ownerUserId = $ownerId AND
+		technecianReportTitle LIKE $title AND
+		technecianReportId = $id
+	INNER JOIN user ON technecianReport.senderUserId = user.userId
+	INNER JOIN userInfo ON technecianReport.senderUserId = userInfo.userId
+	INNER JOIN user ON technecianReport.ownerUserId = user.userId
+	INNER JOIN userInfo ON technecianReport.ownerUserId = userInfo.userId

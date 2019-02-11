@@ -1,0 +1,14 @@
+rowMaterial,material > filter:materialName > *
+	SELECT material.materialName,material.materialDescription,COUNT(*) AS count FROM rowMaterial
+		WHERE 	material.materialName = $materialName AND
+			rowMaterial.consumptionPenId IS NULL 
+		INNER JOIN material USING materialId 
+		GROUP BY rowMaterial.materialId
+
+rowProduct,product > filter:productName,rowProductStartTime,rowProductFinishTime,rowProductDeliveryTime > *
+	SELECT * FROM rowProduct
+		WHERE	product.productName = $productName AND
+			rowProductStartTime BETWEEN $startTimeBegin AND $startTimeEnd AND
+			rowProductFinishTime BETWEEN $finishTimeBegin AND $finishTimeEnd AND
+			rowProductDeliveryTime BETWEEN $deliveryTimeBegin AND $deliveryTimeEnd
+		INNER JOIN product USING productId

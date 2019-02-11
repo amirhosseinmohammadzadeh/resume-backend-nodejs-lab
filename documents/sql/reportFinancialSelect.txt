@@ -1,0 +1,46 @@
+buyPen,factor,transaction,rowMaterial,material,user,userInfo > factorTime,userId,financialUserId,factorBuyerName,materialName
+
+	SELECT * FROM buyPen
+		WHERE 	factor.factorTime BETWEEN $startTime AND $endTime AND
+			factor.userId = $userId AND
+			factor.financialUserId = $financialId AND
+			factor.factorBuyerName LIKE $buyerName AND
+			material.materialName LIKE $materialName AND
+			factor.factorId = $id AND
+		INNER JOIN factor USING factorId
+		INNER JOIN transaction USING factorId
+		INNER JOIN rowMaterial USING buyPenId
+		INNER JOIN material ON rowMaterial.materialId = material.materialId
+		INNER JOIN user ON factor.userId = user.userId
+		INNER JOIN userInfo ON factor.userId = userInfo.userId
+
+buyPen,factor,transaction,rowProduct,product,user,userInfo> factorTime,userId,financialUserId,factorBuyerName,ProductName
+
+	SELECT * FROM buyPen
+		WHERE 	factor.factorTime BETWEEN $startTime AND $endTime AND
+			factor.userId = $userId AND
+			factor.financialUserId = $financialId AND
+			factor.factorBuyerName LIKE $buyerName AND
+			product.productName LIKE $productName AND
+			factor.factorId = $id AND
+		INNER JOIN factor USING factorId
+		INNER JOIN transaction USING factorId
+		INNER JOIN rowProduct USING buyPenId
+		INNER JOIN product ON rowProduct.productId = product.productId
+		INNER JOIN user ON factor.userId = user.userId
+		INNER JOIN userInfo ON factor.userId = userInfo.userId
+
+consumptionPen,factor,transaction,rowMaterial,material,user,userInfo > factorTime,userId,financialUserId,factorBuyerName,materialName
+	SELECT * FROM consumptionPen
+		WHERE 	factor.factorTime BETWEEN $startTime AND $endTime AND
+			factor.userId = $userId AND
+			factor.financialUserId = $financialId AND
+			factor.factorBuyerName LIKE $buyerName AND
+			material.materialName LIKE $materialName AND
+			factor.factorId = $id AND
+		INNER JOIN factor USING factorId
+		INNER JOIN transaction USING factorId
+		INNER JOIN rowMaterial USING buyPenId
+		INNER JOIN material ON rowMaterial.materialId = material.materialId
+		INNER JOIN user ON factor.userId = user.userId
+		INNER JOIN userInfo ON factor.userId = userInfo.userId

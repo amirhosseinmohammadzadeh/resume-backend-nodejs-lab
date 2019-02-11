@@ -1,0 +1,6 @@
+SELECT * FROM technecianDeleteRequest
+	WHERE 	technecianDeleteRequestDate BETWEEN $dateStart AND $dateEnd AND
+		technecianDeleteRequestStatus = $statue AND
+		senderUserId = $senderUserId
+	INNER JOIN user USING userId
+	INNER JOIN user ON technecianDeleteRequest.senderUserId = user.userId

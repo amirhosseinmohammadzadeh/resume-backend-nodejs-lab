@@ -1,0 +1,148 @@
+users------------------------------------------------------------------
+1. table userGroup >>>
+	userGroupId <pk><m><ai> - INT
+	userGroupName <ik><m> - VARCHAR(30)
+2. table user >>>
+	userId <pk><m><ai> - INT
+	userUsername <ik><m> - VARCHAR(30)
+	userPassword <m> - VARCHAR(70)
+	userStatus <m> - INT
+	userGroupId <fk><m> - INT
+3. table userInfo >>>
+	userInfoId <pk><m><ai> - INT
+	userId <fk><m><ik> - INT
+	userInfoFirstName <m> - VARCHAR(30)
+	userInfoLastName <m> - VARCHAR(30)
+	userInfoBirtday <m> - INT
+	userInfoEmail <m> - VARCHAR(50)
+	userInfoNationalCode <ik> - VARCHAR(12)
+	userAddrCity <m> - VARCHAR(20)
+	userAddrArea <m> - VARCHAR(20)
+	userAddrStreet - VARCHAR(20)
+	userAddrAlley - VARCHAR(20)
+	userAddrPlaque - INT
+	userAddrMoreInfo - VATCHAR(70)
+	userPostCode <m> - VARCHAR(12)
+	userRegistrationDate <m> - INT
+4. table userPhone >>>
+	userPhoneId <pk><m><ai> - INT
+	userId <fk><m> - INT
+	userPhoneNumber <ik><m> - VARCHAR(10)
+	userPhoneCityCode <m> - VARCHAR(3)
+5. table userEducationBackground >>>
+	userEducationBackgroundId <pk><m><ai> - INT
+	userId <fk><m> - INT
+	userEducationBackgroundAverage <m> - FLOAT
+	userEducationBackgroundEndDate <m> - INT
+	userEducationBackgroundUniversity <m> - VARCHAR(70)
+6. table userChild >>>
+	userChildId <pk><m><ai> - INT
+	userId <fk><m> - INT
+	userChildFirstName <m> - VARCHAR(30)
+	userChildLastName <m> - VARCHAR(30)
+	userChildGender <m> - BIT
+	UserChildBirtday <m> - INT
+7. table userResume >>>
+	userResumeId <pk><m><ai> - INT
+	userId <fk><m> - INT
+	userResumePlaceName <m> - VARCHAR(70)
+	userResumeStartTime <m> - INT
+	userResumeEndTime <m> - INT
+	userResumeDiscription - VARCHAR(120)
+8. table userInOut >>>
+	userId <fk><m> - INT
+	userInOutId <pk><m><ai> - INT
+	userInOutMode <m> - BIT
+	userInOutTime <m> - INT
+
+wareHouse--------------------------------------------------------------------------
+9. table rowMaterial >>>
+	rowMaterialId <pk><m><ai> - INT
+	materialId <fk><m> - INT
+	rowMaterialExpire <m> - INT
+	buyPenId <fk><m> - INT
+	consumptionPenId <fk> - INT
+
+10.table material >>>
+	materialId <pk><m><ai> - INT
+	materialName <m> - VARCHAR(70)
+	materialDescription - VARCHAR(120)
+
+11.table rowProduct >>>
+	rowProductId <pk><m><ai> - INT
+	rowProductStartTime - INT
+	rowProductFinishTime - INT
+	rowProductDeliveryTime - INT
+	buyPenId <fk><m> - INT
+	productId <fk><m> - INT
+	orderProduceRequestId <fk><m> - INT
+	
+12.table product >>>
+	productId <pk><m><ai> - INT
+	productName <m> - VARCHAR(70)
+	productDescription - VARCHAR(120)
+
+report----------------------------------------------------------------------
+13.consumptionPen >>>
+	consumptionPenId <pk><m><ai> - INT
+	consumptionPenPrice <m> - INT
+	factorId <fk><m> - INT
+	
+14.table buyPen >>>
+	buyPenId <pk><m><ai> - INT
+	buyPenPrice <m> - INT
+	factorId <fk><m> - INT
+
+15.table factor >>>
+	factorId <pk><m><ai> - INT
+	factorBuyerName <m> - VARCHAR(70)
+	factorDescription - VARCHAR(120)
+	factorTime <m> - INT
+	userId <fk> - INT
+	financialUserId <fk><m> - INT
+
+16.table transaction >>>
+	transactionId <pk><m><ai> - INT
+	transactionPrice <m> - INT
+	transactionModeInOut <m> - BIT
+	factorId <fk><m> - INT
+	transactionTime <m> - INT
+
+17.table technecianReport >>>
+	technecianReportId <pk><m><ai> - INT
+	senderUserId <fk><m> - INT
+	ownerUserId <fk><m> - INT
+	technecianReportDate <m> - INT
+	technecianReportTitle <m> - VARCHAR(30)
+	technecianReportDescription <m> - VARCHAR(250)
+
+request---------------------------------------------------------------------
+18.table technecianDeleteRequest >>>
+	technecianDeleteRequestId <pk><m><ai> - INT
+	technecianDeleteRequestDate <m> - INT
+	technecianDeleteRequestStatus <m> - BIT
+	userId <fk><m> - INT
+	senderUserId <fk><m> - INT
+	technecianDeleteRequestDescription <m> - VARCHAR(120)
+
+19.table orderRowMaterialRequest >>>
+	orderRowMaterialRequestId <pk><m><ai> - INT
+	userId <fk><m> - INT
+	orderRowMaterialRequestTitle <m> - VARCHAR(70)
+	materialId <fk><m> - INT
+	orderRowMaterialRequestDescription <m> - VARCHAR(300)
+
+20.table orderProductRequest >>>
+	orderProduceRequestId <pk><m><ai> - INT
+	userId <fk><m> - INT
+	orderProduceRequestTitle <m> - VARCHAR(70)
+	orderProduceRequestDescription <m> - VARCHAR(300)
+	
+	
+	
+	
+	
+
+	
+	
+	

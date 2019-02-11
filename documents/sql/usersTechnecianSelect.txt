@@ -1,0 +1,35 @@
+$technecianName = 'technecian';
+$userGroupId = SELECT userGroupId FROM userGroup WHERE userGroupName = $technecianName
+------------------------------------------------------------------------
+user,userGroup,userInfo,userPhone > filter:userPhoneNumber,userPhoneCityCode,userUsername,userInfoFirstname,userInfoLastname,userInfoBirtday,userInfoEmail,userInfoNationalCode,userInfoAddrCity,userInfoAddrStreet,userInfoAddrAlley,userInfoAddrPlaque,userInfoPostCode,userInfoRegistrationDate > *
+	SELECT * FROM user
+		WHERE
+			userGroup.userGroupId = $userGroupId AND
+			userPhone.userPhoneNumber LIKE $phoneNumber AND
+			userPhone.userPhoneCityCode = $phoneCityCode AND
+			user.userUsername = $username AND
+			userInfo.userInfoFirstname LIKE $firstname AND
+			userInfo.userInfoLastname LIKE $lastname AND
+			userInfo.userInfoBirtday BETWEEN $birtdayStart AND $birtdayEnd AND
+			userInfo.userInfoEmail LIKE $email AND
+			userInfo.userInfoNationalCode LIKE $nationalCode AND
+			userInfo.userInfoAddrCity = $city AND
+			userInfo.userInfoAddrStreet = $street AND
+			userInfo.userInfoAddrAlley = $alley AND
+			userInfo.userInfoAddrPlaque = $plaque AND 
+			userInfo.userInfoPostCode LIKE $postCode AND
+			userInfo.userInfoRegistrationDate BETWEEN $registerStart AND $registerEnd
+		INNER JOIN userGroup USING userGroupId
+		INNER JOIN userInfo USING userId
+		INNER JOIN userPhone USING userId
+------------------------------------------------------------------------
+user,userGroup,userInfo,userInOut > filter:userUsername,userInOutMode,userInOutTime > *
+	SELECT * FROM user
+		WHERE 
+			userGroup.userGroupId = $userGroupId AND
+			user.userUsername = $username AND
+			userInOut.userInOutMode = $userInOutMode AND
+			userInOut.userInOutTime BETWEEN $startTime AND $endTime
+		INNER JOIN userGroup USING userGroupId
+		INNER JOIN userInfo USING userId
+		INNER JOIN userInOut USING userId

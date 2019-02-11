@@ -1,0 +1,12 @@
+INSERT INTO technecianReport
+			(senderUserId,
+			ownerUserId,
+			technecianReportDate,
+			technecianReportTitle,
+			technecianReportDescription)
+		VALUES
+			($senderId,
+			$ownerId,
+			$date,
+			$title,
+			$description)

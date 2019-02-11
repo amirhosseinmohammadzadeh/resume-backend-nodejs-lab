@@ -1,0 +1,6 @@
+SELECT * FROM orderProduceRequest
+	WHERE	orderProduceRequest.orderProduceRequestId = $id AND
+		user.userId = $userId AND
+	INNER JOIN user USING userId
+	INNER JOIN userInfo USING userId
+		

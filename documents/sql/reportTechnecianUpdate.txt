@@ -1,0 +1,6 @@
+UPDATE technecianReport SET
+			ownerUserId = $ownerId,
+			technecianReportDate = $date,
+			technecianReportTitle = $title,
+			technecianReportDescription = $description
+	WHERE technecianReportId = $id AND senderUserId = $senderId

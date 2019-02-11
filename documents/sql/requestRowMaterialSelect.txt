@@ -1,0 +1,7 @@
+SELECT * FROM orderRowMaterialRequest 
+	WHERE	material.materialName = $materialName AND
+		user.userId = $userId AND
+		orderRowMaterialRequestId = $id
+	INNER JOIN user USING userId
+	INNER JOIN material USING materialId
+	INNER JOIN userInfo USING userId

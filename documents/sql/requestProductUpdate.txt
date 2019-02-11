@@ -1,0 +1,7 @@
+$userId = SELECT userId FROM user WHERE userUsername = $userUsername
+
+UPDATE orderProduceRequest SET
+			'userId' = $userId,
+			'orderProduceRequestTitle' = $title,
+			'orderProduceRequestDescription' = $decription
+	WHERE orderProduceRequestId = $id

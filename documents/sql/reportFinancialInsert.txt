@@ -1,0 +1,27 @@
+INSERT INTO consumptionPen ('factorId') VALUES ($factorId)
+
+INSERT INTO buyPen ('buyPenPrice','factorId') VALUES ($price,$factorId)
+
+INSERT INTO factor 
+		('factorBuyerName',
+		'factorDescription',
+		'factorTime',
+		'userId',
+		'financialUserId')
+	VALUES	
+		($buyerName,
+		$description,
+		$time,
+		$userId,
+		$financialId)
+
+INSERT INTO transaction
+		('transactionPrice',
+		'transactionModeInOut',
+		'factorId',
+		'transactionTime')
+	VALUES	
+		($price,
+		$mode,
+		$factorId,
+		$time)

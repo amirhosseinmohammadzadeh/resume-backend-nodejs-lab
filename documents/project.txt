@@ -1,0 +1,29 @@
+1. url/backup
+	mode = save file , permisson = operator
+
+2. url/users
+	mode = insert[technecian] , permission = operator
+	mode = select[technecian] , permission = operator
+	mode = update[technecian] , permission = operator
+	mode = confirmInsertDelete[technecian] , permission = financial
+	mode = insert , permission = manager
+	mode = select , permission = manager,operator,financial
+	mode = update , permission = manager
+	mode = delete , permission = manager
+
+3. url/stock
+	mode = select , permission = operator, financial,manager
+
+4. url/request
+	mode = insert[orderProduct] , permission = operator
+	mode = delete[orderProduct] , permission = operator
+	mode = update[orderProduct] , permission = operator
+	mode = select[orderProducts] , permission = operator, financial, manager
+	mode = confirmComplete[orderProduct] , permission = financial
+
+5.url/report
+	mode = insert[financial] , permission = financial
+	mode = select[financial] , permission = financial, manager 
+	mode = update[financial] , permission = financial	
+	mode = insert[technecian] , permission = manager, operator
+	mode = select[technecian] , permission = manager

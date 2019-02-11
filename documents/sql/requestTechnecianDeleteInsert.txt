@@ -1,0 +1,15 @@
+$userId = SELECT userId FROM user WHERE userUsername = $userUsername
+
+INSET INTO technecianDeleteRequest
+			('userId',
+			'technecianDeleteRequestDate',
+			'technecianDeleteRequestStatus',
+			'senderUserId',
+			'technecianDeleteRequestDescription')
+		VALUES
+			($userId,
+			$date,
+			$status,
+			$senderUserId,
+			$description)
+	

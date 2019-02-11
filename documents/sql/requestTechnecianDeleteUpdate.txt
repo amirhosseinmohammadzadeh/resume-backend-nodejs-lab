@@ -1,0 +1,8 @@
+$userId = SELECT userId FROM user WHERE userUsername = $userUsername
+
+UPDATE technecianDeleteRequest SET
+			'userId' = $userId,
+			'technecianDeleteRequestDate' = $title,
+			'technecianDeleteRequestStatus' = $status,
+			'technecianDeleteRequestDescription' = $decription
+	WHERE technecianDeleteRequestId = $id && senderUserId = $senderId
