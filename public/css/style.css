@@ -1,0 +1,40 @@
+body{
+	direction: rtl;
+	text-align: right;
+}
+
+div#page-loading{
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+}
+div.fixed-center{	
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+}
+div.login-container{
+	width: 400px;
+	height: 350px;
+	max-width: 100%;
+}
+table.table-striped tr{
+	cursor: pointer;
+}
+table.table-striped tr:hover{
+	opacity: 0.7;
+}
+table.table-striped td{
+	padding:10px;
+}
+table.table-striped thead{
+	font-weight: bold;
+}
+footer{
+	padding:20px;
+	text-align: center;
+	color:#ccc;
+}
